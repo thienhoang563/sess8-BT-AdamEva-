@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="eatAdam()">Adam</button>
+<button onclick="eatEva()">Eva</button>
+
+<script>
+    var Apple = function () {
+        this.weight = 10; //apple
+        this.decrease = function () {
+            if (this.weight){
+                this.weight --;
+            } ;
+        }
+        this.getWeight = function () {
+            return this.weight;
+        };
+    }
+
+    var Human = function (name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight; //human
+        this.setGender = function (gender) {
+            this.gender = gender;
+        }
+        this.eat = function (Apple) {
+               if (Apple.weight){  //so luong Tao
+                   Apple.decrease();
+                   this.weight ++; //human
+               }
+        }
+        this.getName = function () {
+            return this.name;
+        }
+        this.setName = function (name) {
+            this.name = name;
+
+        }
+
+        this.getWeight = function () {
+            return this.weight;
+        }
+        this.setWeight = function (weight) {
+            this.weight = weight;
+
+        }
+
+    }
+    var apple = new Apple();
+    var adam = new Human("Adam","Male",20);
+    var eva = new Human("Eva","Female",15);
+
+    function eatAdam() {
+        adam.eat(apple);
+        alert(adam.getName()+" cân nặng: "+ adam.getWeight()+
+            " giới tính: "+ adam.gender+ " số táo còn: "+ apple.getWeight());
+    }
+    function eatEva() {
+        eva.eat(apple);
+        alert(eva.getName()+" cân nặng: "+ eva.getWeight()+
+            " giới tính: "+ eva.gender+" số táo còn: "+ apple.getWeight());
+    }
+    
+</script>
+</body>
+</html>
